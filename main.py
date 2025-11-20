@@ -190,9 +190,15 @@ class MainWindow(QtWidgets.QWidget):
 
         self.ocr_table = QtWidgets.QTableWidget(0, 4)
         self.ocr_table.setHorizontalHeaderLabels(["Source Text", "Lang", "Translation", "BBox/Source"])
-        self.ocr_table.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        #self.ocr_table.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        #right.addWidget(self.ocr_table, 1)
+        header = self.ocr_table.horizontalHeader()
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)  
         right.addWidget(self.ocr_table, 1)
-
+        
         self.edit = QtWidgets.QPlainTextEdit()
         right.addWidget(self.edit)
 
